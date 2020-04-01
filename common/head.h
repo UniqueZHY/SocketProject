@@ -18,4 +18,5 @@
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <stdbool.h>
+#include <signal.h>
 #endif

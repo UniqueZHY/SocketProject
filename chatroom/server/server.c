@@ -10,18 +10,44 @@
 #include "../common/chatroom.h"
 #include "../common/color.h"
 
-struct User {//用户结构体
+struct User{
     char name[20];
-    int online;//在线人数
-    pthread_t tid;//线程ID
-    int fd;//哪一个连接
+    int online;
+    pthread_t tid;
+    int fd;
 };
 
 
 char *conf = "./server.conf";
 
-struct User *client;//用户数组
+struct User *client;
+int sum = 0;
 
+
+void send_all(struct Msg msg) {
+    for (int i = 0; i < MAX_CLIENT; i++) {
+        if (client[i].online)
+            chat_send(msg, client[i].fd);
+    }
+}
+
+int check_name(char *name) {
+    for (int i = 0; i < MAX_CLIENT; i++) {
+        if (client[i].online && !strcmp(client[i].name, name)) 
+            return i;
+    }
+    return -1;
+}
+
+void people(struct Msg msg) {
+    printf("在线人员有：\n");
+    for (int i = 0; i < MAX_CLIENT; i++) {
+        if (!client[i].online) continue;
+        printf("%s  ", client[i].name);
+       // getchar();
+    }
+    printf("\n");
+}
 
 void *work(void *arg){
     int sub = *(int *)arg;
@@ -30,19 +56,47 @@ void *work(void *arg){
     printf(GREEN"Login "NONE" : %s\n", client[sub].name);
     while (1) {
         rmsg = chat_recv(client_fd);
-        if (rmsg.retval < 0) {//没收到信息，客户的退出
+        if (rmsg.retval < 0) {
             printf(PINK"Logout: "NONE" %s \n", client[sub].name);
             close(client_fd);
-            client[sub].online = 0;//下线
+            client[sub].online = 0;
+            sum--;
             return NULL;
         }
+
         printf(BLUE"%s"NONE" : %s\n",rmsg.msg.from, rmsg.msg.message);
+        if (rmsg.msg.message[0] == '#') {
+            printf("当前在线人数为： %d\n", sum);
+            people(rmsg.msg);
+        }
+        if (rmsg.msg.flag == 0) {
+            send_all(rmsg.msg);
+        } else if (rmsg.msg.flag == 1) {
+            if (rmsg.msg.message[0] == '@') {
+                char to[20] = {0};
+                int i = 1;
+                for (; i <= 20; i++) {
+                    if (rmsg.msg.message[i] == ' ')
+                        break;
+                }
+                strncpy(to, rmsg.msg.message + 1, i - 1);
+                int ind;
+                if ((ind = check_name(to)) < 0) {
+                    //告知不在线
+                    sprintf(rmsg.msg.message, "%s is not online.", to);
+                    rmsg.msg.flag = 2;
+                    chat_send(rmsg.msg, client_fd);
+                    continue;
+                } 
+                chat_send(rmsg.msg, client[ind].fd);
+            }
+        }
     }
     return NULL;
 }
 
 
-int find_sub() {//给用户找空位置
+int find_sub() {
     for (int i = 0; i < MAX_CLIENT; i++) {
         if (!client[i].online) return i;
     }
@@ -51,13 +105,12 @@ int find_sub() {//给用户找空位置
 
 bool check_online(char *name) {
     for (int i = 0; i < MAX_CLIENT; i++) {
-        //在线 并且 名字不重复
         if (client[i].online && !strcmp(name, client[i].name)) {
             printf(YELLOW"W"NONE": %s is online\n", name);
-            return true;//不让连接
+            return true;
         }
     }
-    return false;//让
+    return false;
 }
 
 
@@ -83,9 +136,8 @@ int main() {
             close(fd);
             continue;
         }
-        //应经在线，重复登录，拒绝连接
         if (check_online(recvmsg.msg.from)) {
-            msg.flag = 3;//重复登录flag
+            msg.flag = 3;
             strcpy(msg.message, "You have Already Login System!");
             chat_send(msg, fd);
             close(fd);
@@ -96,12 +148,16 @@ int main() {
         strcpy(msg.message, "Welcome to this chat room!");
         chat_send(msg, fd);
 
-        int sub;
+        int sub, ret;
+        sum++;
         sub = find_sub();
         client[sub].online = 1;
         client[sub].fd =fd;
         strcpy(client[sub].name, recvmsg.msg.from);
-        pthread_create(&client[sub].tid, NULL, work, (void *)&sub);
+        ret = pthread_create(&client[sub].tid, NULL, work, (void *)&sub);
+        if (ret != 0) {
+            fprintf(stderr, "pthread_create");
+        }
     }
     return 0;
 }

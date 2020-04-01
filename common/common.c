@@ -6,12 +6,12 @@
  ************************************************************************/
 
 #include "head.h"
-//用来获取配置信息，path从哪，key 取哪个
+
 char *get_value(char *path, char *key) {
     FILE *fp = NULL;
     ssize_t nrd;
     char *line = NULL, *sub = NULL;
-    extern char conf_ans[50];//全局变量，为了ans能return出去
+    extern char conf_ans[50];
     size_t linecap;
     if (path == NULL || key == NULL) {
         fprintf(stderr, "Error in argument!\n");
@@ -26,7 +26,6 @@ char *get_value(char *path, char *key) {
             continue;
         else {
             if (line[strlen(key)] == '=') {
-                //分隔符也读进去了，所以-2
                 strncpy(conf_ans, sub + strlen(key) + 1, nrd - strlen(key) - 2);
                 *(conf_ans + nrd - strlen(key) - 2) = '\0';
                 break;
