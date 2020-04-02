@@ -1,1 +1,0 @@
-gcc server.c ../common/common.c ../common/tcp_server.c -o server -lpthread
