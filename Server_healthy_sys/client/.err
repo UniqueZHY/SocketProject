@@ -1,0 +1,19 @@
+client.c: In function 'int main()':
+client.c:9:20: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+     char *config = "./conf_client.log";
+                    ^~~~~~~~~~~~~~~~~~~
+client.c:12:37: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+     get_conf_value(config, "IP", tmp);
+                                     ^
+client.c:16:44: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+     get_conf_value(config, "HeartPort", tmp);
+                                            ^
+client.c:20:43: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+     get_conf_value(config, "DataPort", tmp);
+                                           ^
+client.c:24:43: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+     get_conf_value(config, "LoadPort", tmp);
+                                           ^
+client.c:7:30: warning: variable 'loadPort' set but not used [-Wunused-but-set-variable]
+     int heartPort, dataPort, loadPort;
+                              ^~~~~~~~

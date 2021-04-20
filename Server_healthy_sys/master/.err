@@ -1,0 +1,71 @@
+master2.h:33:22: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+ char *Error_master = "/opt/pi_master/Error_master.log";
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+master2.h:34:15: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+ char *mpath = "/opt/pi_master/log/";
+               ^~~~~~~~~~~~~~~~~~~~~
+master2.h: In function 'void output(LinkList)':
+master2.h:60:71: error: 'printf' was not declared in this scope
+         printf("[%d] : %s\n", ++cnt, inet_ntoa(p->next->addr.sin_addr));
+                                                                       ^
+master2.h: In function 'void* do_heart(void*)':
+master2.h:72:135: error: 'printf' was not declared in this scope
+                     printf("%s is \033[31mnot online\033[0m on %d\n", inet_ntoa(p->next->addr.sin_addr), ntohs(p->next->addr.sin_port));
+                                                                                                                                       ^
+master2.h:78:131: error: 'printf' was not declared in this scope
+                     printf("%s is \033[32monline\033[0m on %d\n", inet_ntoa(p->next->addr.sin_addr), ntohs(p->next->addr.sin_port));
+                                                                                                                                   ^
+master2.h:84:20: error: 'printf' was not declared in this scope
+         printf("\n");
+                    ^
+master2.h: In function 'int check_connect(sockaddr_in, long int)':
+master2.h:91:24: error: 'perror' was not declared in this scope
+         perror("socket");
+                        ^
+master2.h: In function 'void* do_data(void*)':
+master2.h:131:32: error: 'perror' was not declared in this scope
+                 perror("socket");
+                                ^
+master2.h:142:33: error: 'perror' was not declared in this scope
+                 perror("connect");
+                                 ^
+master2.h:150:34: error: 'perror' was not declared in this scope
+                     perror("send");
+                                  ^
+master2.h:157:34: error: 'perror' was not declared in this scope
+                     perror("recv");
+                                  ^
+master2.h:165:43: error: 'perror' was not declared in this scope
+                     perror("socket_connet");
+                                           ^
+master2.h:170:80: error: 'sprintf' was not declared in this scope
+                 sprintf(fdir, "%s/%s", mpath, inet_ntoa(p->next->addr.sin_addr));
+                                                                                ^
+master2.h:174:39: error: 'perror' was not declared in this scope
+                         perror("mkdir");
+                                       ^
+master2.h:182:48: error: 'fopen' was not declared in this scope
+                 FILE *fw = fopen(filepath, "a+");
+                                                ^
+master2.h:186:43: error: 'fprintf' was not declared in this scope
+                     fprintf(fw, "%s", buff);
+                                           ^
+master2.h:189:26: error: 'fclose' was not declared in this scope
+                 fclose(fw);
+                          ^
+master2.h: In function 'void listen_epoll(int, Node**, int*, int, int)':
+master2.h:203:30: error: 'perror' was not declared in this scope
+         perror("epoll_create");
+                              ^
+master2.h:211:27: error: 'perror' was not declared in this scope
+         perror("epoll_ctl");
+                           ^
+master2.h:218:32: error: 'perror' was not declared in this scope
+             perror("epoll_wait");
+                                ^
+master2.h:230:36: error: 'perror' was not declared in this scope
+                     perror("accept");
+                                    ^
+master2.h:242:43: error: 'printf' was not declared in this scope
+                 printf("someone come in\n");
+                                           ^

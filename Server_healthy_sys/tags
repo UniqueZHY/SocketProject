@@ -1,0 +1,98 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUFFSIZE	sjp_client/client.h	2;"	d
+BUFFSIZE	sjp_client/client2.h	6;"	d
+BUFFSIZE	sjp_master/master.h	4;"	d
+BUFFSIZE	sjp_master/master2.h	4;"	d
+CC	sjp_client/Makefile	/^CC = gcc$/;"	m
+CC	sjp_master/Makefile	/^CC = gcc$/;"	m
+CFLAGS	sjp_client/Makefile	/^CFLAGS = -Wall -g -lpthread$/;"	m
+CFLAGS	sjp_master/Makefile	/^CFLAGS = -Wall -g -lpthread$/;"	m
+Data	sjp_master/master.h	/^struct Data {$/;"	s
+Data	sjp_master/master2.h	/^struct Data {$/;"	s
+Error_log	sjp_client/client2.h	/^char *Error_log = "\/opt\/pi_client\/Error_client.log";$/;"	v
+Error_master	sjp_master/master2.h	/^char *Error_master = "\/opt\/pi_master\/Error_master.log";$/;"	v
+Heart	sjp_master/master.h	/^struct Heart {$/;"	s
+Heart	sjp_master/master2.h	/^struct Heart {$/;"	s
+LinkList	sjp_master/master.h	/^}Node, *LinkList;$/;"	t	typeref:struct:Node
+LinkList	sjp_master/master2.h	/^}Node, *LinkList;$/;"	t	typeref:struct:Node
+MAXCLIENT	sjp_master/master.h	3;"	d
+MAXCLIENT	sjp_master/master2.h	3;"	d
+Node	sjp_master/master.h	/^typedef struct Node {$/;"	s
+Node	sjp_master/master.h	/^}Node, *LinkList;$/;"	t	typeref:struct:Node
+Node	sjp_master/master2.h	/^typedef struct Node {$/;"	s
+Node	sjp_master/master2.h	/^}Node, *LinkList;$/;"	t	typeref:struct:Node
+OBJS	sjp_client/Makefile	/^OBJS = client.o util.o$/;"	m
+OBJS	sjp_master/Makefile	/^OBJS = master.o util.o$/;"	m
+Share	sjp_client/client2.h	/^struct Share {$/;"	s
+_UTIL_H	sjp_client/util.h	22;"	d
+_UTIL_H	sjp_master/util.h	23;"	d
+addr	sjp_master/master.h	/^    struct sockaddr_in addr;$/;"	m	struct:Node	typeref:struct:Node::sockaddr_in
+addr	sjp_master/master2.h	/^    struct sockaddr_in addr;$/;"	m	struct:Node	typeref:struct:Node::sockaddr_in
+bsname	sjp_client/client2.h	/^char bsname[6][20] = {"cpu_info.sh", "disk_info.sh", "mem_info.sh", "user_info.sh", "SysInfo.sh", "enermy_pro.sh"};$/;"	v
+check_connect	sjp_master/master.h	/^int check_connect(struct sockaddr_in addr, long timeout) {$/;"	f
+check_connect	sjp_master/master2.h	/^int check_connect(struct sockaddr_in addr, long timeout) {$/;"	f
+ctlport	sjp_master/master2.h	/^    int ctlport;$/;"	m	struct:Data
+dataport	sjp_master/master2.h	/^    int dataport;$/;"	m	struct:Data
+destname	sjp_client/client2.h	/^char destname[6][20] = {"cpu.log", "disk.log", "mem.log", "user.log", "sys.log", "enermy.log"};$/;"	v
+do_bash	sjp_client/client2.h	/^int do_bash(int inx, struct Share *share, int cnt) {$/;"	f
+do_check	sjp_client/client2.h	/^void do_check(int inx, struct Share *share, int cnt) {$/;"	f
+do_data	sjp_master/master.h	/^void *do_data(void *arg) {$/;"	f
+do_data	sjp_master/master2.h	/^void *do_data(void *arg) {$/;"	f
+do_heart	sjp_master/master.h	/^void *do_heart(void *arg) {$/;"	f
+do_heart	sjp_master/master2.h	/^void *do_heart(void *arg) {$/;"	f
+do_load	sjp_client/client.h	/^void do_load(char *ip, int loadPort) {$/;"	f
+do_load	sjp_client/client2.h	/^void do_load(char *ip, int loadPort, struct Share* share) {$/;"	f
+dyAver	sjp_client/client2.h	/^double dyAver = 0;$/;"	v
+fd	sjp_master/master.h	/^    int fd;$/;"	m	struct:Node
+fd	sjp_master/master2.h	/^    int fd;$/;"	m	struct:Node
+find_min	sjp_master/master.h	/^int find_min(int *sum, int ins) {$/;"	f
+find_min	sjp_master/master2.h	/^int find_min(int *sum, int ins) {$/;"	f
+get_conf_value	sjp_client/util.c	/^int get_conf_value(char *file, char *key, char *value) {$/;"	f
+get_conf_value	sjp_master/util.c	/^int get_conf_value(char *file, char *key, char *value) {$/;"	f
+head	sjp_master/master.h	/^    LinkList head;$/;"	m	struct:Data
+head	sjp_master/master2.h	/^    LinkList head;$/;"	m	struct:Data
+ind	sjp_master/master.h	/^    int ind;$/;"	m	struct:Data
+ind	sjp_master/master2.h	/^    int ind;$/;"	m	struct:Data
+ins	sjp_master/master.h	/^    int ins;$/;"	m	struct:Heart
+ins	sjp_master/master2.h	/^    int ins;$/;"	m	struct:Heart
+insert	sjp_master/master.h	/^int insert(LinkList head, Node *node) {$/;"	f
+insert	sjp_master/master2.h	/^int insert(LinkList head, Node *node) {$/;"	f
+linklist	sjp_master/master.h	/^    LinkList *linklist;$/;"	m	struct:Heart
+linklist	sjp_master/master2.h	/^    LinkList *linklist;$/;"	m	struct:Heart
+listen_epoll	sjp_master/master.h	/^void listen_epoll(int listenfd, LinkList *linklist, int *sum, int ins, int heartPort) {$/;"	f
+listen_epoll	sjp_master/master2.h	/^void listen_epoll(int listenfd, LinkList *linklist, int *sum, int ins, int heartPort) {$/;"	f
+logpath	sjp_client/client2.h	/^char *logpath = "\/opt\/pi_client\/log";$/;"	v
+main	sjp_client/client.c	/^int main() {$/;"	f
+main	sjp_client/client2.c	/^int main() {$/;"	f
+main	sjp_master/master.c	/^int main() {$/;"	f
+main	sjp_master/master2.c	/^int main() {$/;"	f
+mpath	sjp_master/master2.h	/^char *mpath = "\/opt\/pi_master\/log\/";$/;"	v
+next	sjp_master/master.h	/^    struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node
+next	sjp_master/master2.h	/^    struct Node *next;$/;"	m	struct:Node	typeref:struct:Node::Node
+output	sjp_master/master.h	/^void output(LinkList head) {$/;"	f
+output	sjp_master/master2.h	/^void output(LinkList head) {$/;"	f
+port	sjp_master/master.h	/^    int port;$/;"	m	struct:Data
+recv_data	sjp_client/client.h	/^void recv_data(int port) {$/;"	f
+recv_data	sjp_client/client2.h	/^void recv_data(int dataport, int ctlport, struct Share *share) {$/;"	f
+recv_heart	sjp_client/client.h	/^void recv_heart(int port) {$/;"	f
+recv_heart	sjp_client/client2.h	/^void recv_heart(int port, struct Share *share) {$/;"	f
+shareCnt	sjp_client/client2.h	/^    int shareCnt;$/;"	m	struct:Share
+smutex	sjp_client/client2.h	/^    pthread_mutex_t smutex;$/;"	m	struct:Share
+socket_connect	sjp_client/util.c	/^int socket_connect(int port, char *ip) {$/;"	f
+socket_connect	sjp_master/util.c	/^int socket_connect(int port, char *ip) {$/;"	f
+socket_create	sjp_client/util.c	/^int socket_create(int port) {$/;"	f
+socket_create	sjp_master/util.c	/^int socket_create(int port) {$/;"	f
+sptpath	sjp_client/client2.h	/^char *sptpath = "\/opt\/pi_client\/script";$/;"	v
+sready	sjp_client/client2.h	/^    pthread_cond_t sready;$/;"	m	struct:Share
+sum	sjp_master/master.h	/^    int *sum;$/;"	m	struct:Heart
+sum	sjp_master/master2.h	/^    int *sum;$/;"	m	struct:Heart
+timeout	sjp_master/master.h	/^    long timeout;$/;"	m	struct:Heart
+timeout	sjp_master/master2.h	/^    long timeout;$/;"	m	struct:Heart
+tmp_info	sjp_client/client2.h	/^char tmp_info[BUFFSIZE * 4] = {0};$/;"	v
+write_log	sjp_client/util.c	/^int write_log(char *path, const char *format, ...) {$/;"	f
+write_log	sjp_master/util.c	/^int write_log(char *path, const char *format, ...) {$/;"	f

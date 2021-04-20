@@ -1,0 +1,7 @@
+[2019年-8月-11日 11时-18分-24秒][数据模块] [error] [process : 16500] [message : Connection refused]
+[2020年-10月-7日 19时-15分-39秒][监听模块] [error] [process : 9437] [message : Bad file descriptor]
+[2020年-10月-7日 19时-29分-33秒][监听模块] [error] [process : 7933] [message : Interrupted system call]
+[2020年-10月-9日 9时-50分-50秒][监听模块] [error] [process : 25424] [message : Bad file descriptor]
+[2020年-10月-9日 14时-0分-47秒][监听模块] [error] [process : 25388] [message : Interrupted system call]
+[2021年-3月-25日 15时-21分-12秒][监听模块] [error] [process : 4028] [message : Bad file descriptor]
+[2021年-3月-25日 15时-31分-58秒][监听模块] [error] [process : 4855] [message : Bad file descriptor]
