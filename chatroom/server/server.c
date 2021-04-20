@@ -138,7 +138,7 @@ bool check_online(char *name) {
     for (int i = 0; i < MAX_CLIENT; i++) {
         //在线 并且 名字不重复
         if (client[i].online && !strcmp(name, client[i].name)) {
-            printf(YELLOW"W"NONE": %s is online\n", name);
+            printf(YELLOW"WARNING"NONE": %s is online\n", name);
             return true;//不让连接避免重复登录
         }
     }

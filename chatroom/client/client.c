@@ -20,7 +20,6 @@ void logout(int signalnum) {
     exit(1);
 }
 
-
 int main() {
     int port;
     struct Msg msg;
@@ -71,10 +70,8 @@ int main() {
             system("clear");//系统调用，清空屏幕
             printf(L_PINK"Please Input Message:"NONE"\n");
             //清零，为了下一条消息
-            memset(msg.message, 0, sizeof(msg.message));
-            //从键盘输入信息，直到回车\n结束，放到msg.message
-            scanf("%[^\n]s", msg.message);
-//按了回车后，回车会一直在缓冲区内，需要用getchar()吃掉，不然会一直输出空信息
+            memset(msg.message, 0, sizeof(msg.message));//从键盘输入信息，直到回车\n结束，放到msg.message
+            scanf("%[^\n]s", msg.message);//按了回车后，回车会一直在缓冲区内，需要用getchar()吃掉，不然会一直输出空信息
             c = getchar();
             msg.flag = 0;
             //发信息的时候如果是@就标记一下
